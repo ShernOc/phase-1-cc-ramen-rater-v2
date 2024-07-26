@@ -1,29 +1,54 @@
 // index.js
 
-// Callbacks
-const handleClick = (ramen) => {
-  // Add code
-};
+// Fetching the API
+const ramenAPI = 'http://localhost:3000/'; 
 
-const addSubmitListener = () => {
-  // Add code
+fetch(ramenAPI)
+.then(res=>res.json())
+.then(ramens=>renderRamen(ramens));
+// .then(renderRamens)
+
+// Function that shows all the Ramens // using for Each to go through each ramen data 
+
+function renderRamens(ramens){
+ramens.forEach(renderRamen); 
 }
 
-const displayRamens = () => {
-  // Add code
-};
+// We are working on div #ramen-menu, where the images will be created and appended to the div ramen-menu . 1. you grab it, 2. 
 
-const main = () => {
-  // Invoke displayRamens here
-  // Invoke addSubmitListener here
+// 1. Grabing the div id ramen-menu 
+const ramenMenu = document.getElementById('ramen-menu'); 
+
+function renderRamen(ramens){
+  const ramenPic = document.createElement('img'); 
+  ramenPic.src = ramens.image; 
+  ramenMenu.append(ramenPic);
 }
 
-main()
+// // Callbacks
+// const handleClick = (ramen) => {
+//   // Add code
+// };
 
-// Export functions for testing
-export {
-  displayRamens,
-  addSubmitListener,
-  handleClick,
-  main,
-};
+// const addSubmitListener = () => {
+//   // Add code
+// }
+
+// const displayRamens = () => {
+//   // Add code
+// };
+
+// const main = () => {
+//   // Invoke displayRamens here
+//   // Invoke addSubmitListener here
+// }
+
+// main()
+
+// // Export functions for testing
+// export {
+//   displayRamens,
+//   addSubmitListener,
+//   handleClick,
+//   main,
+// };
